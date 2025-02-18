@@ -4,7 +4,7 @@
 void print_arr(float* arr, int n)
 {
 	for(int i = 0; i < n; ++i)
-		print("f\n", *(arr + i));
+		printf("f\n", *(arr + i));
 }
 
 
