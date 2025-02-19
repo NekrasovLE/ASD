@@ -1,15 +1,24 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
-
-void print_arr(float* arr, int n)
-{
-	for(int i = 0; i < n; ++i)
-		printf("f\n", arr[i]);
-}
+#include "my_array.h"
 
 
 int main()
 {
-	float *p;
-	printf("Hello World!!!");
+	int n = 1;
+	printf("Enter n: ");
+	if (scanf("%d", &n) != 1 && n < 0) 
+	{
+		printf("Error: INCORECT INPUT");
+		abort();
+	}
+
+	float *arr {new float[n]{}};
+
+	rand_arr(arr, n);
+	print_arr(arr, n);
+
+
+	return 0;
 }
