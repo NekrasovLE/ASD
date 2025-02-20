@@ -1,7 +1,6 @@
+#include "my_array.cpp"
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "my_array.h"
 
 
 int main()
@@ -14,11 +13,16 @@ int main()
 		abort();
 	}
 
-	float *arr {new float[n]{}};
+	int *arr = new int[n]{};
 
 	rand_arr(arr, n);
 	print_arr(arr, n);
-
+	
+	delete_element(&arr, &n, min_arr(arr, n));
+	print_arr(arr, n);
+	
+	add_element(&arr, &n, 0);
+	print_arr(arr, n);
 
 	return 0;
 }

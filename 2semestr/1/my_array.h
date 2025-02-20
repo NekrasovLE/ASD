@@ -1,7 +1,11 @@
-#include "my_array.cpp"
+#pragma once
 
-void print_arr(float* arr, int n);
-void rand_arr(float* arr, int n, float min = -10, float max = 10);
-float min_arr(float* arr, int n);
-void delete_element(float* arr, int n, float x);
-void add_element(float* arr, int n);
+void print_arr(int* arr, int n);
+
+void rand_arr(int* arr, int n, int max = 20);
+
+float min_arr(int* arr, int n);
+
+void delete_element(int** arr, int* n, int x);
+
+void add_element(int** arr, int* n, int x);
