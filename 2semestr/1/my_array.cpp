@@ -14,17 +14,17 @@ void print_arr(int* arr, int n)
 }
 
 
-void rand_arr(int* arr, int n, int max)
+void rand_arr(int* arr, int n, int min, int max)
 {
 	srand(time(NULL));
 	for(int i = 0; i < n; ++i)
-		*(arr + i) = rand() % max;
+		*(arr + i) = min + (rand() % (max - min));
 }
 
 
-float min_arr(int* arr, int n)
+int min_arr(int* arr, int n)
 {
-	float min = arr[0];
+	int min = arr[0];
 	for(int i = 1; i < n; ++i)
 	{
 		if(arr[i] < min)
@@ -36,6 +36,7 @@ float min_arr(int* arr, int n)
 }
 
 
+#if 0
 void delete_element(int** arr, int* n, float x)
 {
 	for(int i = 0; i < *n; ++i)
@@ -57,12 +58,13 @@ void delete_element(int** arr, int* n, float x)
 			*arr = new_arr;
 			*n -= 1;
 			delete[] new_arr;
+			break;
 		}
 	}
 }
 
 
-void add_element(int** arr, int* n, int x)
+void add_element(int** arr, int* n, int x) 
 {
 	for(int i = 0; i < *n; ++i)
 	{
@@ -82,8 +84,10 @@ void add_element(int** arr, int* n, int x)
 
 			delete[] *arr;
 			*arr = new_arr;
-			*n -= 1;
+			*n += 1;
 			delete[] new_arr;
+			break;
 		}
 	}
 }
+#endif
