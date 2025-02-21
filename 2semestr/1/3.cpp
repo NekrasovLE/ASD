@@ -14,7 +14,7 @@ int main()
 
 	int A, B;
 	printf("Enter A and B with space: ");
-	if (scanf("%d", &A, &B) != 2) 
+	if (scanf("%d%d", &A, &B) != 2) 
 	{
 		printf("Error: INCORECT INPUT");
 		abort();

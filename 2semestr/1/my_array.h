@@ -29,5 +29,13 @@ struct out_min_max
     int n, m;
 };
 
+//TO DO
 out_min_max min_multidim_arr(int** arr, int n, int m);
 out_min_max max_multidim_arr(int** arr, int n, int m);
+
+//TO DO
+void add_row(int** arr, int &n, int &m, int row);
+void add_column(int** arr, int &n, int &m, int colum);
+//TO DO
+void delete_row(int** arr, int &n, int &m, int row);
+void delete_column(int** arr, int &n, int &m, int colum);
