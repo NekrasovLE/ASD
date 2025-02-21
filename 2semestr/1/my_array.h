@@ -10,11 +10,11 @@ int max_arr(int* arr, int n);
 void rand_arr(int* arr, int n, int min = -20, int max = 20);
 
 
-void delete_element(int** arr, int* n, int x);
-void add_element(int** arr, int* n, int x);
+void delete_element(int* arr, int& n, int x);
+void add_element(int* arr, int& n, int x);
 
 //TO DO
-void sort_arr(int** arr, int n);
+void sort_arr(int* arr, int n);
 
 
 //TO DO

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstdlib>
-
+#include <time.h>
 
 void print_arr(float* arr, int n);
 
@@ -42,6 +42,7 @@ void print_arr(float* arr, int n)
 
 void rand_arr(float* arr, int n, float min, float max)
 {
+	srand(time(NULL));
 	for(int i = 0; i < n; ++i)
 		arr[i] = min + static_cast<float>(rand() / (static_cast<float>(RAND_MAX / (max - min))));
 }

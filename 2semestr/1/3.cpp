@@ -25,6 +25,6 @@ int main()
     rand_arr(arr, n, A, B);
     print_arr(arr, n);
     
-    sort_arr(&arr, n);
+    sort_arr(arr, n);
     print_arr(arr, n);
 }

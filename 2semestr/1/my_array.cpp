@@ -35,28 +35,27 @@ int min_arr(int* arr, int n)
 	return min;
 }
 
-
 #if 0
-void delete_element(int** arr, int* n, float x)
+void delete_element(int* arr, int& n, int x)
 {
-	for(int i = 0; i < *n; ++i)
+	for(int i = 0; i < n; ++i)
 	{
-		if(x == (*arr)[i])
+		if(x == arr[i])
 		{
-			int* new_arr = new int[*n - 1]; // create new array
+			int* new_arr = new int[n - 1]; // create new array
 			
 			for(int j = 0; j < i; ++j) // copy previus elemens without deleted
 			{
-				new_arr[j] = (*arr)[j];
+				new_arr[j] = arr[j];
 			}
-			for(int j = i + 1; j < *n; ++j)
+			for(int j = i + 1; j < n; ++j)
 			{
-				new_arr[j - 1] = (*arr)[j];
+				new_arr[j - 1] = arr[j];
 			}
 
-			delete[] *arr;
-			*arr = new_arr;
-			*n -= 1;
+			delete[] arr;
+			arr = new_arr;
+			n -= 1;
 			delete[] new_arr;
 			break;
 		}
@@ -64,30 +63,61 @@ void delete_element(int** arr, int* n, float x)
 }
 
 
-void add_element(int** arr, int* n, int x) 
+void add_element(int* arr, int& n, int x) 
 {
-	for(int i = 0; i < *n; ++i)
+	for(int i = 0; i < n; ++i)
 	{
-		if((*arr)[i] % 2 != 0)
+		if(arr[i] % 2 != 0)
 		{
-			int* new_arr = new int[*n + 1];
+			int* new_arr = new int[n + 1];
 			
 			for(int j = 0; j <= i; ++j)
 			{
-				new_arr[j] = (*arr)[j];
+				new_arr[j] = arr[j];
 			}
 			new_arr[i + 1] = x;
-			for(int j = i + 2; j < *n; ++j)
+			for(int j = i + 2; j < n; ++j)
 			{
-				new_arr[j] = (*arr)[j - 1];
+				new_arr[j] = arr[j - 1];
 			}
 
-			delete[] *arr;
-			*arr = new_arr;
-			*n += 1;
+			delete[] arr;
+			arr = new_arr;
+			n += 1;
 			delete[] new_arr;
 			break;
 		}
 	}
 }
 #endif
+
+void sort_arr(int* arr, int n)
+{
+	int left = 0, right = n - 1, flag = 1, t;
+	while((left < right) && flag == 1)
+	{
+		for(int i = 0; i < right; ++i)
+		{
+			if(arr[i] > arr[i + 1])
+			{
+				t = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = t;
+				flag = 1;
+			}
+		}
+		right--;
+		for(int i = right; i > left; --i)
+		{
+			if(arr[i - 1] > arr[i])
+			{
+				t = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = t;
+				flag = 1;
+			}
+		}
+		left++;
+	}
+}
+
