@@ -6,7 +6,7 @@
 int main()
 {
     int n, m;
-	printf("Enter n: ");
+	printf("Enter n and m with space: ");
 	if (scanf("%d%d", &n, &m) != 2 or n < 0 or m < 0) 
 	{
 		printf("Error: INCORECT INPUT");
