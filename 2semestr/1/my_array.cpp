@@ -93,32 +93,33 @@ void add_element(int* arr, int& n, int x)
 
 void sort_arr(int* arr, int n)
 {
-	int left = 0, right = n - 1, flag = 1, t;
-	while((left < right) && flag == 1)
+	int start = 0, end = n - 1;
+	bool swapped = 1;
+
+    while ((start < end) && swapped)
 	{
-		flag = 0;
-		for(int i = left; i < right; i++)
-		{
-			if(arr[i] > arr[i + 1])
+        swapped = 0;
+        for (int i = 0; i < end; ++i)
+            if (arr[i] > arr[i + 1])
 			{
-				t = arr[i];
+				int t = arr[i];
 				arr[i] = arr[i + 1];
 				arr[i + 1] = t;
-				flag = 1;
+                swapped = 1;
 			}
-		}
-		right--;
-		for(int i = right; i > left; i--)
-		{
-			if(arr[i - 1] > arr[i])
+        if (!swapped)
+            break;
+        swapped = 0;
+        end -= 1;
+        for (int i = end - 1; i > start; --i)
+            if (arr[i] > arr[i + 1])
 			{
-				t = arr[i];
+                int t = arr[i];
 				arr[i] = arr[i + 1];
 				arr[i + 1] = t;
-				flag = 1;
+                swapped = 1;
 			}
-		}
-		left++;
+        start += 1;
 	}
 }
 
