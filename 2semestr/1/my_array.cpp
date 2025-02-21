@@ -35,61 +35,6 @@ int min_arr(int* arr, int n)
 	return min;
 }
 
-#if 0
-void delete_element(int* arr, int& n, int x)
-{
-	for(int i = 0; i < n; ++i)
-	{
-		if(x == arr[i])
-		{
-			int* new_arr = new int[n - 1]; // create new array
-			
-			for(int j = 0; j < i; ++j) // copy previus elemens without deleted
-			{
-				new_arr[j] = arr[j];
-			}
-			for(int j = i + 1; j < n; ++j)
-			{
-				new_arr[j - 1] = arr[j];
-			}
-
-			delete[] arr;
-			arr = new_arr;
-			n -= 1;
-			delete[] new_arr;
-			break;
-		}
-	}
-}
-
-
-void add_element(int* arr, int& n, int x) 
-{
-	for(int i = 0; i < n; ++i)
-	{
-		if(arr[i] % 2 != 0)
-		{
-			int* new_arr = new int[n + 1];
-			
-			for(int j = 0; j <= i; ++j)
-			{
-				new_arr[j] = arr[j];
-			}
-			new_arr[i + 1] = x;
-			for(int j = i + 2; j < n; ++j)
-			{
-				new_arr[j] = arr[j - 1];
-			}
-
-			delete[] arr;
-			arr = new_arr;
-			n += 1;
-			delete[] new_arr;
-			break;
-		}
-	}
-}
-#endif
 
 void sort_arr(int* arr, int n)
 {
