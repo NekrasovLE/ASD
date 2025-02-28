@@ -1,5 +1,6 @@
 #include "my_array.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <cstdlib>
 #include <time.h>
 
@@ -68,3 +69,53 @@ void sort_arr(int* arr, int n)
 	}
 }
 
+
+void delete_element(int* arr, int& n, int x)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		if (arr[i] == x)
+		{ 
+			for (int j = i; j < n; ++j)
+			{
+				arr[j] = arr[j + 1];
+			}
+			arr = (int*)realloc(arr, --n);
+		}
+	}
+}
+
+
+void add_element(int* arr, int& n, int x)
+{
+	int k = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		(arr[i] %  2 = 0) ? k++ : ; 
+	}
+	int* new_arr = new int[n + k];
+	for (int i = 0, j = 0; i < n; ++i, ++j)
+	{
+		new_arr[j] = arr[i]
+		if (arr[i] % 2 == 0)
+		{
+			new_arr[j + 1] = 0;
+			++j;
+		}
+	}	
+#if 0
+	for (int i = 0; i < n; ++i)
+	{ 
+		if (*(arr + i) % 2 == 0)
+		{
+			arr = (int*)realloc(arr, ++n);
+			for (int j = n; j > i + 1; --j)
+			{
+				*(arr + j) = *(arr + j - 1);
+			}
+			arr[i + 1] = x;
+		}
+		i += 1;
+	}
+#endif
+}
