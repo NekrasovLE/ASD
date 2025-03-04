@@ -91,18 +91,22 @@ void add_element(int* arr, int& n, int x)
 	int k = 0;
 	for (int i = 0; i < n; ++i)
 	{
-		(arr[i] %  2 = 0) ? k++ : ; 
+		if (arr[i] %  2 == 0) k++; 
 	}
 	int* new_arr = new int[n + k];
 	for (int i = 0, j = 0; i < n; ++i, ++j)
 	{
-		new_arr[j] = arr[i]
+		new_arr[j] = arr[i];
 		if (arr[i] % 2 == 0)
 		{
 			new_arr[j + 1] = 0;
 			++j;
 		}
-	}	
+	}
+	n += k;
+	delete[] arr;
+	arr = new_arr;
+
 #if 0
 	for (int i = 0; i < n; ++i)
 	{ 
